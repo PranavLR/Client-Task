@@ -34,9 +34,9 @@ import { ViewTableComponent } from './view-table/view-table.component';
     MatSidenavModule,
     MatButtonModule,
     MatTableModule,
-        TableModule,
+    TableModule,
     DragDropModule,
-        CdkDrag,
+    CdkDrag,
   ],
   providers: [],
   bootstrap: [AppComponent]
