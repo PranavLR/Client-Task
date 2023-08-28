@@ -1,0 +1,121 @@
+<div class="d-flex justify-content-center">
+  <div class="container shadow p-3 mb-5 bg-white rounded col-lg-7">
+    <h2>{{paramsId ? 'Edit' : 'Create'}} Item</h2>
+    <form [formGroup]="form" (ngSubmit)="paramsId ? onEdit() : onCreate()" >
+      <div class="mb-3">
+        <label for="id" class="form-label">ID</label>
+        <input type="text" class="form-control disabled" formControlName="id">
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="attr1" class="form-label">Attribute 1</label>
+          <input type="text" class="form-control" formControlName="attr1">
+        </div>
+        <div class="col-md-6">
+          <label for="attr2" class="form-label">Attribute 2</label>
+          <input type="text" class="form-control" formControlName="attr2">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">{{paramsId ? 'Edit' : 'Create'}}</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- <div class="container-fluid my-3 d-flex justify-content-center">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col-6 rounded-3">
+    <h2>Add Table</h2>
+      <div class="form-group">
+          <label>Table Name</label>
+          <input type="text" class="form-control" formControlName="tableName" placeholder="Table Name">
+      </div>
+  
+      <div formGroupName="Table">
+  
+          <div formArrayName="TableHeader" class="my-2">
+          <label>Table Headers:</label>
+          <div *ngFor="let header of TableHeader.controls; let i = index">
+              <div class="form-group d-flex gap-2 mb-2">
+              <input class="form-control" type="text" [formControlName]="i">
+              <button type="button" class="btn btn-danger" (click)="deleteHeader(i)">Delete</button>
+              </div>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="addHeader()">Add Header</button>
+          </div>
+  
+          <div formArrayName="TableBody" class="my-2">
+          <label>Table Body:</label>
+          <div *ngFor="let bodyItem of TableBody.controls; let i = index">
+              <div class="form-group d-flex gap-2 mb-2">
+              <input class="form-control" type="text" [formControlName]="i">
+              <button type="button" class="btn btn-danger" (click)="deleteBodyItem(i)">Delete</button>
+              </div>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="addBodyItem()">Add Body Item</button>
+          </div>
+  
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div> -->
+
+
+
+
+<!-- <form [formGroup]="tableForm">
+  <div *ngFor="let table of tableList; let i = index">
+    <fieldset>
+      <legend>{{ table[0].tableName }}</legend>
+      <div *ngFor="let item of table; let j = index">
+        <div *ngIf="j !== 0">
+          <input type="text" [formControlName]="'item-' + j + '.id'" placeholder="ID">
+          <input type="text" [formControlName]="'item-' + j + '.name'" placeholder="Name">
+          <input type="text" [formControlName]="'item-' + j + '.category'" placeholder="Category">
+          <input type="text" [formControlName]="'item-' + j + '.quantity'" placeholder="Quantity">
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</form> -->
+
+
+
+ 
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddTable">
+  Launch demo modal
+</button> -->
+
+
+
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="AddTable" tabindex="-1" role="dialog" aria-labelledby="AddTableTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="AddTableTitle">Add Table</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mt">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  

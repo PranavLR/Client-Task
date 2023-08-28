@@ -1,0 +1,14 @@
+// /* Add a darker box shadow to the form container */
+// .col-6 {
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+//     /* Adjust the alpha value here */
+//     padding: 20px;
+//     /* Optional padding for visual spacing */
+// }
+
+
+.disabled {
+    pointer-events: none;
+    background-color: #f0f0f0;
+    /* Optionally change the background color to indicate the disabled state */
+}

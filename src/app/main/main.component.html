@@ -1,0 +1,41 @@
+
+<div class="container-class">
+    
+    <div mode="side" opened class="side-bar d-flex align-items-center flex-column">
+        <h2 class="text-center m-2">Side Bar</h2>
+        <br><br>
+        <div #containerDrag>
+            <div *ngFor="let item of tableList ; let i = index" class="position-relative">
+                <!-- <pre>{{item |json}}</pre> -->
+                    <h3 class="drag-item" style="z-index: 2;" (dblclick)="viewTable(item?.id)" cdkDrag>
+                        {{item?.name}}
+                    </h3>
+                    <!-- <h3 class="drag-item position-absolute top-0" style="cursor: default;" (dblclick)="viewTable(item?.id)">
+                        {{item?.name}}
+                    </h3> -->
+                <!-- <ng-container *ngFor="let subItem of item; let j = index">
+                    <h3 class="drag-item" (dblclick)="viewTable(i)" *ngIf="j==0" cdkDrag>
+                        {{subItem?.tableName}}
+                    </h3>
+                </ng-container> -->
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between">
+            <h2>Dashboard</h2>
+            <button type="button" [routerLink]="['/add-table']" class="btn btn-primary">Add Table</button>
+        </div>
+        <hr>
+
+        <br><br>
+
+        <ng-container *ngFor="let item of tableList">
+          <!-- <app-table></app-table> -->
+        </ng-container>
+
+    </div>
+  
+</div>
