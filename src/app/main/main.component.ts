@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class MainComponent implements OnInit, AfterViewInit {
 
   tableList!: any[];
+  transfromPosition!: any[];
   @ViewChild('containerDrag', { static: true }) containerDrag!: ElementRef;
 
 
@@ -19,7 +20,12 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     if (JSON.parse(localStorage.getItem('tableData')!)) {
-      this.manage.data = [...JSON.parse(localStorage.getItem('tableData')!)]
+      this.manage.data = JSON.parse(localStorage.getItem('tableData')!)
+    }
+
+
+    if (JSON.parse(localStorage.getItem('transfromPosition')!)) {
+      this.transfromPosition = JSON.parse(localStorage.getItem('transfromPosition')!);
     }
 
     this.tableList = this.manage.data;
@@ -27,16 +33,26 @@ export class MainComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit() {
-    // Access DOM element's properties/methods after view initialization
-    const nativeElement = this.containerDrag.nativeElement;
-    console.log('this.', this.containerDrag);
-    console.log('this.containerDrag ', nativeElement.children);
-    // nativeElement.textContent = 'Updated content';
+    const childrenElement = this.containerDrag.nativeElement.children;
+
+    if (!this.transfromPosition?.length) return
+    for (let iterator = 0; iterator < (childrenElement as []).length; iterator++) {
+      childrenElement[iterator].children[0].style.webkitTransform = this.transfromPosition[iterator];
+    }
   }
 
 
   viewTable(id: number) {
     this.router.navigate(['/add-table/' + id])
+  }
+
+
+  drop(event: any) {
+    const array = [];
+    for (let iterator = 0; iterator < (event.children as []).length; iterator++) {
+      array.push(event.children[iterator].children[0].style?.webkitTransform);
+    }
+    localStorage.setItem('transfromPosition', JSON.stringify(array))
   }
 
 }

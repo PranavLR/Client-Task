@@ -105,7 +105,7 @@ export class ManageService {
   // ];
 
   constructor() {
-    localStorage.setItem('tableData', JSON.stringify(this.data));
+    // localStorage.setItem('tableData', JSON.stringify(this.data));
   }
 
 }

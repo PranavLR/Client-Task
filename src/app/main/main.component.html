@@ -7,7 +7,7 @@
         <div #containerDrag>
             <div *ngFor="let item of tableList ; let i = index" class="position-relative">
                 <!-- <pre>{{item |json}}</pre> -->
-                    <h3 class="drag-item" style="z-index: 2;" (dblclick)="viewTable(item?.id)" cdkDrag>
+                    <h3 class="drag-item" style="transform: none" (dblclick)="viewTable(item?.id)" (cdkDragReleased)="drop(containerDrag)" cdkDrag>    <!-- style="z-index: 2;"    [style]="'transform: translate3d(260px, ' +i * 10 +'px, 0px);'"   -->  
                         {{item?.name}}
                     </h3>
                     <!-- <h3 class="drag-item position-absolute top-0" style="cursor: default;" (dblclick)="viewTable(item?.id)">

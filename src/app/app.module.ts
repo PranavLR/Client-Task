@@ -30,13 +30,13 @@ import { ViewTableComponent } from './view-table/view-table.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-
+    
     MatSidenavModule,
     MatButtonModule,
     MatTableModule,
-    TableModule,
+        TableModule,
     DragDropModule,
-    CdkDrag,
+        CdkDrag,
   ],
   providers: [],
   bootstrap: [AppComponent]
